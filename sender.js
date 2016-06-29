@@ -13,7 +13,7 @@ connection.on('error', function(e) {
 
 connection.on('ready', function() {
 	LOG.success('Connected to rabbitmq at ' + config.HOST + ':' + config.PORT);
-	connection.exchange(config.EXCHANGE, {type: 'fanout'}, function(exchange) {
+	connection.exchange(config.EXCHANGE, {type: 'fanout', autoDelete: false}, function(exchange) {
 		LOG.success('Opened', config.EXCHANGE, 'exchange');
 		rl.setPrompt('Message: ');
 		rl.prompt();
