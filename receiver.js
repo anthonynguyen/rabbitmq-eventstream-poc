@@ -21,9 +21,17 @@ var newUserSchema = mongoose.Schema({
 });
 var NewUser = mongoose.model('NewUser', newUserSchema);
 
+var newAppSchema = mongoose.Schema({
+	created: {type: Date, required: true, default: Date.now},
+	owner: {type: String, required: true},
+	title: {type: String, required: true},
+});
+var NewApp = mongoose.model('NewApp', newAppSchema);
+
 function eventHandler(message, headers, deliveryInfo, messageObject) {
 	var EVENTS = {
 		NewUserEvent: NewUser,
+		NewAppEvent: NewApp,
 	};
 
 	if (EVENTS.hasOwnProperty(message.type)) {
