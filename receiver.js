@@ -10,28 +10,10 @@ mongoose.connection.on('open', function() {
 	LOG.success('Connected to Mongo database at', MONGO_ADDRESS);
 });
 
-var newUserSchema = mongoose.Schema({
-	created: {type: Date, required: true, default: Date.now},
-	firstName: {type: String, required: true},
-	lastName: {type: String},
-	username: {type: String, required: true},
-	email: {type: String, required: true},
-	type: {type: String, required: true, enum: ['FREE', 'PREMIUM', 'EMPLOYEE']},
-	country: {type: String, required: true},
-});
-var NewUser = mongoose.model('NewUser', newUserSchema);
-
-var newAppSchema = mongoose.Schema({
-	created: {type: Date, required: true, default: Date.now},
-	owner: {type: String, required: true},
-	title: {type: String, required: true},
-});
-var NewApp = mongoose.model('NewApp', newAppSchema);
-
 function eventHandler(message, headers, deliveryInfo, messageObject) {
 	var EVENTS = {
-		NewUserEvent: NewUser,
-		NewAppEvent: NewApp,
+		NewUserEvent: require('./models/NewUser.js'),
+		NewAppEvent: require('./models/NewApp.js'),
 	};
 
 	if (EVENTS.hasOwnProperty(message.type)) {
