@@ -22,14 +22,21 @@ var newUserSchema = mongoose.Schema({
 var NewUser = mongoose.model('NewUser', newUserSchema);
 
 function eventHandler(message, headers, deliveryInfo, messageObject) {
-	if (message.type == 'NewUserEvent') {
-		LOG.warn('Received NewUserEvent');
-		var event = new NewUser(message.event);
+	var EVENTS = {
+		NewUserEvent: NewUser,
+	};
+
+	if (EVENTS.hasOwnProperty(message.type)) {
+		var type = message.type;
+		var model = EVENTS[type];
+		LOG.warn('Received', type);
+
+		var event = new model(message.event);
 		event.save(function(err) {
 			if (err != null) {
 				LOG.error('Not saved:', err.message);
 			} else {
-				LOG.success('Saved:', event.firstName, event.lastName, '(' + event.username + ')');
+				LOG.success('Saved');
 			}
 		});
 	} else {
