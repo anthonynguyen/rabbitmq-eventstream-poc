@@ -22,6 +22,11 @@ Proof of concept for a RabbitMQ-based event stream.
 
 
 ## Events
+1. [Create User](#create-user)
+2. [Create App](#create-app)
+3. [Delete App](#delete-app)
+4. [Share Public Stream](#share-public-stream)
+5. [Unshare Public Stream](#unshare-public-stream)
 
 ### Create User
 ##### Format
