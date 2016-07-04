@@ -4,10 +4,12 @@ Proof of concept for a RabbitMQ-based event stream.
 
 
 ## Architecture diagram
-The items highlighted in yellow are what this POC implements.
+#### POC Architecture
+![POC Architecture](/images/poc.png "POC Architecture")
 
-![Diagram](/images/main.png "Diagram")
-
+#### Reference Architecture
+![Reference Architecture](/images/reference.png "Reference Architecture")
+![Reference Architecture Reference](/images/IMG_1619.JPG "Reference Architecture Reference")
 
 ## How to use
 1. Ensure you have running instances of MongoDB and RabbitMQ and edit `config.js` with their connection information.
