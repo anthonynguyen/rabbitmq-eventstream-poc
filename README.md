@@ -70,3 +70,33 @@ Proof of concept for a RabbitMQ-based event stream.
 ```json
 {"type": "DeleteAppEvent", "event": {"owner": "anthony", "title": "Test Dashboard"}}
 ```
+
+### Share Public Stream
+##### Format
+```
+{
+	sharedAt: {type: Date, required: true, default: Date.now},
+	sharedBy: {type: String, required: true},
+	sharedTo: {type: String, required: true},
+}
+```
+
+##### Example
+```json
+{"type": "ShareStreamEvent", "event": {"sharedBy": "anthony", "sharedTo": "example@example.com"}}
+```
+
+### Unshare Public Stream
+##### Format
+```
+{
+	unsharedAt: {type: Date, required: true, default: Date.now},
+	unsharedBy: {type: String, required: true},
+	unsharedFrom: {type: String, required: true},
+}
+```
+
+##### Example
+```json
+{"type": "UnshareStreamEvent", "event": {"unsharedBy": "anthony", "unsharedFrom": "example@example.com"}}
+```
