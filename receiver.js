@@ -14,6 +14,7 @@ function eventHandler(message, headers, deliveryInfo, messageObject) {
 	var EVENTS = {
 		NewUserEvent: require('./models/NewUser.js'),
 		NewAppEvent: require('./models/NewApp.js'),
+		DeleteAppEvent: require('./models/DeleteApp.js'),
 	};
 
 	if (EVENTS.hasOwnProperty(message.type)) {

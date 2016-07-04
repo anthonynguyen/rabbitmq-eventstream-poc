@@ -55,3 +55,18 @@ Proof of concept for a RabbitMQ-based event stream.
 ```json
 {"type": "NewAppEvent", "event": {"owner": "anthony", "title": "Test Dashboard"}}
 ```
+
+### Delete App
+##### Format
+```
+{
+	deleted: {type: Date, required: true, default: Date.now},
+	owner: {type: String, required: true},
+	title: {type: String, required: true},
+}
+```
+
+##### Example
+```json
+{"type": "DeleteAppEvent", "event": {"owner": "anthony", "title": "Test Dashboard"}}
+```
