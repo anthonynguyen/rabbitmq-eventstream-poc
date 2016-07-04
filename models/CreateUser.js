@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-var newUserSchema = mongoose.Schema({
-	created: {type: Date, required: true, default: Date.now},
+var createUserEventSchema = mongoose.Schema({
+	createdAt: {type: Date, required: true, default: Date.now},
 	firstName: {type: String, required: true},
 	lastName: {type: String},
 	username: {type: String, required: true},
@@ -9,6 +9,6 @@ var newUserSchema = mongoose.Schema({
 	type: {type: String, required: true, enum: ['FREE', 'PREMIUM', 'EMPLOYEE']},
 	country: {type: String, required: true},
 });
-var NewUser = mongoose.model('NewUser', newUserSchema);
+var CreateUserEvent = mongoose.model('CreateUserEvent', createUserEventSchema);
 
-module.exports = NewUser;
+module.exports = CreateUserEvent;

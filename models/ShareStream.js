@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
-var shareStreamSchema = mongoose.Schema({
+var shareStreamEventSchema = mongoose.Schema({
 	sharedAt: {type: Date, required: true, default: Date.now},
 	sharedBy: {type: String, required: true},
 	sharedTo: {type: String, required: true},
 });
-var ShareStream = mongoose.model('ShareStream', shareStreamSchema);
+var ShareStreamEvent = mongoose.model('ShareStreamEvent', shareStreamEventSchema);
 
-module.exports = ShareStream;
+module.exports = ShareStreamEvent;

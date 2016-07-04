@@ -12,8 +12,8 @@ mongoose.connection.on('open', function() {
 
 function eventHandler(message, headers, deliveryInfo, messageObject) {
 	var EVENTS = {
-		NewUserEvent: require('./models/NewUser.js'),
-		NewAppEvent: require('./models/NewApp.js'),
+		CreateUserEvent: require('./models/CreateUser.js'),
+		CreateAppEvent: require('./models/CreateApp.js'),
 		DeleteAppEvent: require('./models/DeleteApp.js'),
 		ShareStreamEvent: require('./models/ShareStream.js'),
 		UnshareStreamEvent: require('./models/UnshareStream.js'),

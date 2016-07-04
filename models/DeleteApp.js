@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 
-var deleteAppSchema = mongoose.Schema({
-	deleted: {type: Date, required: true, default: Date.now},
-	owner: {type: String, required: true},
+var deleteAppEventSchema = mongoose.Schema({
+	deletedAt: {type: Date, required: true, default: Date.now},
+	deletedBy: {type: String, required: true},
 	title: {type: String, required: true},
 });
-var DeleteApp = mongoose.model('DeleteApp', deleteAppSchema);
+var DeleteAppEvent = mongoose.model('DeleteAppEvent', deleteAppEventSchema);
 
-module.exports = DeleteApp;
+module.exports = DeleteAppEvent;

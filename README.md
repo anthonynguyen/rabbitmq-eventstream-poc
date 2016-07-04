@@ -23,11 +23,11 @@ Proof of concept for a RabbitMQ-based event stream.
 
 ## Events
 
-### New User
+### Create User
 ##### Format
 ```
 {
-	created: {type: Date, required: true, default: Date.now},
+	createdAt: {type: Date, required: true, default: Date.now},
 	firstName: {type: String, required: true},
 	lastName: {type: String},
 	username: {type: String, required: true},
@@ -38,37 +38,37 @@ Proof of concept for a RabbitMQ-based event stream.
 ```
 ##### Example
 ```json
-{"type": "NewUserEvent", "event": {"firstName": "Anthony", "lastName": "Nguyen", "username": "anthony", "email": "anthony.nguyen@qlik.com", "type": "EMPLOYEE", "country": "Canada"}}
+{"type": "CreateUserEvent", "event": {"firstName": "Anthony", "lastName": "Nguyen", "username": "anthony", "email": "anthony.nguyen@qlik.com", "type": "EMPLOYEE", "country": "Canada"}}
 ```
 
-### New App
+### Create App
 ##### Format
 ```
 {
-	created: {type: Date, required: true, default: Date.now},
-	owner: {type: String, required: true},
+	createdAt: {type: Date, required: true, default: Date.now},
+	createdBy: {type: String, required: true},
 	title: {type: String, required: true},
 }
 ```
 
 ##### Example
 ```json
-{"type": "NewAppEvent", "event": {"owner": "anthony", "title": "Test Dashboard"}}
+{"type": "CreateAppEvent", "event": {"createdBy": "anthony", "title": "Test Dashboard"}}
 ```
 
 ### Delete App
 ##### Format
 ```
 {
-	deleted: {type: Date, required: true, default: Date.now},
-	owner: {type: String, required: true},
+	deletedAt: {type: Date, required: true, default: Date.now},
+	deletedBy: {type: String, required: true},
 	title: {type: String, required: true},
 }
 ```
 
 ##### Example
 ```json
-{"type": "DeleteAppEvent", "event": {"owner": "anthony", "title": "Test Dashboard"}}
+{"type": "DeleteAppEvent", "event": {"deletedBy": "anthony", "title": "Test Dashboard"}}
 ```
 
 ### Share Public Stream
