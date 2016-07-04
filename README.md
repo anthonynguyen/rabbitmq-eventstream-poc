@@ -6,7 +6,7 @@ Proof of concept for a RabbitMQ-based event stream.
 ## Architecture diagram
 The items highlighted in yellow are what this POC implements.
 
-![Diagram](/diagram.png "Diagram")
+![Diagram](/images/main.png "Diagram")
 
 
 ## How to use
