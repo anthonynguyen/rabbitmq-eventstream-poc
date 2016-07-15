@@ -43,7 +43,17 @@ Proof of concept for a RabbitMQ-based event stream.
 ```
 ##### Example
 ```json
-{"type": "CreateUserEvent", "event": {"firstName": "Anthony", "lastName": "Nguyen", "username": "anthony", "email": "anthony.nguyen@qlik.com", "type": "EMPLOYEE", "country": "Canada"}}
+{
+	"type": "CreateUserEvent",
+	"event": {
+		"firstName": "Anthony",
+		"lastName": "Nguyen",
+		"username": "anthony",
+		"email": "anthony.nguyen@qlik.com",
+		"type": "EMPLOYEE",
+		"country": "Canada"
+	}
+}
 ```
 
 ### Create App
@@ -58,7 +68,13 @@ Proof of concept for a RabbitMQ-based event stream.
 
 ##### Example
 ```json
-{"type": "CreateAppEvent", "event": {"createdBy": "anthony", "title": "Test Dashboard"}}
+{
+	"type": "CreateAppEvent",
+	"event": {
+		"createdBy": "anthony",
+		"title": "Test Dashboard"
+	}
+}
 ```
 
 ### Delete App
@@ -73,7 +89,13 @@ Proof of concept for a RabbitMQ-based event stream.
 
 ##### Example
 ```json
-{"type": "DeleteAppEvent", "event": {"deletedBy": "anthony", "title": "Test Dashboard"}}
+{
+	"type": "DeleteAppEvent",
+	"event": {
+		"deletedBy": "anthony",
+		"title": "Test Dashboard"
+	}
+}
 ```
 
 ### Share Public Stream
@@ -88,7 +110,13 @@ Proof of concept for a RabbitMQ-based event stream.
 
 ##### Example
 ```json
-{"type": "ShareStreamEvent", "event": {"sharedBy": "anthony", "sharedTo": "example@example.com"}}
+{
+	"type": "ShareStreamEvent",
+	"event": {
+		"sharedBy": "anthony",
+		"sharedTo": "example@example.com"
+	}
+}
 ```
 
 ### Unshare Public Stream
@@ -103,5 +131,11 @@ Proof of concept for a RabbitMQ-based event stream.
 
 ##### Example
 ```json
-{"type": "UnshareStreamEvent", "event": {"unsharedBy": "anthony", "unsharedFrom": "example@example.com"}}
+{
+	"type": "UnshareStreamEvent",
+	"event": {
+		"unsharedBy": "anthony",
+		"unsharedFrom": "example@example.com"
+	}
+}
 ```

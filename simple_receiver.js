@@ -15,7 +15,7 @@ connection.on('ready', function() {
 		queue.bind(config.RABBITMQ_EXCHANGE, '', function() {
 			LOG.success('RabbitMQ queue bound to', config.RABBITMQ_EXCHANGE);
 			queue.subscribe(function(message, headers, deliveryInfo, messageObject) {
-				LOG.success('Received', JSON.stringify(message));
+				LOG.success('Received:\n', JSON.stringify(message, null, 4));
 			});
 		});
 	});
